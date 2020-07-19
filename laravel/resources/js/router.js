@@ -3,7 +3,7 @@ import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
 
-import home from "./components/home.vue";
+import home from "./components/page/home";
 import quiz from "./components/page/quiz";
 
 import SocialSharing from 'vue-social-sharing';
