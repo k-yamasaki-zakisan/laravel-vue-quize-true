@@ -59,7 +59,9 @@
                 <input class="ranking-radio" type="radio" name="ranking-radio" value="3" />今週
               </label>
             </div>
-            <div class="home_quiz__ranking-chart"></div>
+            <div class="home_quiz__ranking-chart">
+              <bar-chart></bar-chart>
+            </div>
           </section>
           <section class="home__notice">
             <h2 class="home__notice-h2">
