@@ -5,9 +5,7 @@ Vue.use(VueRouter);
 
 import home from "./components/page/Home";
 import quiz from "./components/page/Quiz";
-
-import SocialSharing from 'vue-social-sharing';
-Vue.use(SocialSharing);
+import register from './components/page/Register'
 
 const router = new VueRouter({
     mode: "history",
@@ -21,7 +19,12 @@ const router = new VueRouter({
             path: '/quiz',
             name: quiz,
             component: quiz
-          },
+        },
+        {
+            path: '/register',
+            name: register,
+            component: register
+        },
     ]
 });
 

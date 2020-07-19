@@ -4,6 +4,7 @@ window.Vue = require("vue");
  
 import Vue from "vue";
 import router from "./router";
+import MainPage from './components/page/MainPage'
 // import App from './App.vue' 
 import 'bootstrap/dist/css/bootstrap.css' 
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -25,4 +26,7 @@ Vue.use(BootstrapVue)
 
 new Vue({
     router: router,
+    components: {
+        app: MainPage
+      }
 }).$mount('#app')
