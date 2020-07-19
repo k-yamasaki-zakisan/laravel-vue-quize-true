@@ -4,6 +4,10 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 import home from "./components/home.vue";
+import quiz from "./components/page/quiz";
+
+import SocialSharing from 'vue-social-sharing';
+Vue.use(SocialSharing);
 
 const router = new VueRouter({
     mode: "history",
@@ -13,6 +17,11 @@ const router = new VueRouter({
             name: home,
             component: home
         },
+        {
+            path: '/quiz',
+            name: quiz,
+            component: quiz
+          },
     ]
 });
 

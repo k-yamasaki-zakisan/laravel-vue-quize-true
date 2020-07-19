@@ -1,11 +1,10 @@
 <template>
-<h1>booooo</h1>
-  <!-- <div>
+  <div>
     <header>
       <div class="container text-center">
         <h1>4 Answers Quiz 4択クイズ&クイズ徹底解説</h1>
         <a href="/">
-          <img class="header-nav__logo" src="/public/images/header-logo.png" />
+          <img class="header-nav__logo" src="/images/header-logo.png" />
         </a>
       </div>
       <nav class="navbar navbar-default navbar-static-top">
@@ -42,14 +41,14 @@
         <article class="col-md-8 col-xs-12">
           <section class="home-quiz__introduction">
             <h2 class="home-quiz__introduction-h2">
-              <img class="home-quiz__introduction-h2-logo" src="/public/images/what-is-mark.png" />4 Answers Quizとは?
+              <img class="home-quiz__introduction-h2-logo" src="/images/what-is-mark.png" />4 Answers Quizとは?
             </h2>
             <p>4 Answers Quizとはビジネスマナーから一般常識に至るまで様々なクイズを4択で出題するWEBアプリです。</p>
             <p>何度もトライしてみて正解率100%を目指してみてください。</p>
           </section>
           <section class="home-quiz__setting">
             <h2 class="home-quiz__setting-h2">
-              <img class="home-quiz__setting-h2-logo" src="/public/images/directory-icon.png" />出題設定
+              <img class="home-quiz__setting-h2-logo" src="/images/directory-icon.png" />出題設定
             </h2>
             <form action="/quiz" method="post">
               <label>
@@ -81,7 +80,7 @@
           </section>
           <section class="home-quiz__ranking">
             <h2 class="home-quiz__ranking-h2">
-              <img class="home-quiz__ranking-h2-logo" src="/public/images/graph-icon.png" />ランキング
+              <img class="home-quiz__ranking-h2-logo" src="/images/graph-icon.png" />ランキング
             </h2>
             <div>
               <label>
@@ -98,7 +97,7 @@
           </section>
           <section class="home__notice">
             <h2 class="home__notice-h2">
-              <img class="home__notice-h2-logo" src="/public/images/news-icon.png" />お知らせ情報
+              <img class="home__notice-h2-logo" src="/images/news-icon.png" />お知らせ情報
             </h2>
             <dl>
               <dt>2019/08/23</dt>
@@ -106,10 +105,38 @@
             </dl>
           </section>
         </article>
-        <aside class="col-md-4 col-xs-12">
+        <aside class="col-md-4">
           <section class="sidebar-sns-section">
             <h3 class="text-center sidebar-sns-h3">SNS共有</h3>
             <div class="sidebar-sns-links">
+              <social-sharing url title="shareボタン" inline-template>
+                <div class="twitter__share">
+                  <network network="twitter">
+                    <i class="fab fa-twitter"></i> Twitter
+                  </network>
+                </div>
+              </social-sharing>
+              <social-sharing url title="shareボタン" inline-template>
+                <div class="facebook__share">
+                  <network network="facebook">
+                    <i class="fab fa-facebook"></i> Facebook
+                  </network>
+                </div>
+              </social-sharing>
+              <social-sharing url title="shareボタン" inline-template>
+                <div class="line__share">
+                  <network network="line">
+                    <i class="fab fa-line"></i> Line
+                  </network>
+                </div>
+              </social-sharing>
+              <social-sharing url title="shareボタン" inline-template>
+                <div class="google__share">
+                  <network network="googleplus">
+                    <i class="fab fa-google"></i> google
+                  </network>
+                </div>
+              </social-sharing>
             </div>
           </section>
           <section class="sidebar-keywords">
@@ -213,5 +240,5 @@
         <small>© 2019 4Answers-quiz. All rights reserved.</small>
       </div>
     </footer>
-  </div> -->
+  </div>
 </template>

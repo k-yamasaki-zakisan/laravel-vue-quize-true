@@ -569,9 +569,1116 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v("booooo")])
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("main", [
+      _c("div", { staticClass: "container" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c("aside", { staticClass: "col-md-4" }, [
+          _c("section", { staticClass: "sidebar-sns-section" }, [
+            _c("h3", { staticClass: "text-center sidebar-sns-h3" }, [
+              _vm._v("SNS共有")
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "sidebar-sns-links" },
+              [
+                _c("social-sharing", {
+                  attrs: { url: "", title: "shareボタン" },
+                  inlineTemplate: {
+                    render: function() {
+                      var _vm = this
+                      var _h = _vm.$createElement
+                      var _c = _vm._self._c || _h
+                      return _c(
+                        "div",
+                        { staticClass: "twitter__share" },
+                        [
+                          _c("network", { attrs: { network: "twitter" } }, [
+                            _c("i", { staticClass: "fab fa-twitter" }),
+                            _vm._v(" Twitter\n                ")
+                          ])
+                        ],
+                        1
+                      )
+                    },
+                    staticRenderFns: []
+                  }
+                }),
+                _vm._v(" "),
+                _c("social-sharing", {
+                  attrs: { url: "", title: "shareボタン" },
+                  inlineTemplate: {
+                    render: function() {
+                      var _vm = this
+                      var _h = _vm.$createElement
+                      var _c = _vm._self._c || _h
+                      return _c(
+                        "div",
+                        { staticClass: "facebook__share" },
+                        [
+                          _c("network", { attrs: { network: "facebook" } }, [
+                            _c("i", { staticClass: "fab fa-facebook" }),
+                            _vm._v(" Facebook\n                ")
+                          ])
+                        ],
+                        1
+                      )
+                    },
+                    staticRenderFns: []
+                  }
+                }),
+                _vm._v(" "),
+                _c("social-sharing", {
+                  attrs: { url: "", title: "shareボタン" },
+                  inlineTemplate: {
+                    render: function() {
+                      var _vm = this
+                      var _h = _vm.$createElement
+                      var _c = _vm._self._c || _h
+                      return _c(
+                        "div",
+                        { staticClass: "line__share" },
+                        [
+                          _c("network", { attrs: { network: "line" } }, [
+                            _c("i", { staticClass: "fab fa-line" }),
+                            _vm._v(" Line\n                ")
+                          ])
+                        ],
+                        1
+                      )
+                    },
+                    staticRenderFns: []
+                  }
+                }),
+                _vm._v(" "),
+                _c("social-sharing", {
+                  attrs: { url: "", title: "shareボタン" },
+                  inlineTemplate: {
+                    render: function() {
+                      var _vm = this
+                      var _h = _vm.$createElement
+                      var _c = _vm._self._c || _h
+                      return _c(
+                        "div",
+                        { staticClass: "google__share" },
+                        [
+                          _c("network", { attrs: { network: "googleplus" } }, [
+                            _c("i", { staticClass: "fab fa-google" }),
+                            _vm._v(" google\n                ")
+                          ])
+                        ],
+                        1
+                      )
+                    },
+                    staticRenderFns: []
+                  }
+                })
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _vm._m(2)
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _vm._m(3)
+  ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("header", [
+      _c("div", { staticClass: "container text-center" }, [
+        _c("h1", [_vm._v("4 Answers Quiz 4択クイズ&クイズ徹底解説")]),
+        _vm._v(" "),
+        _c("a", { attrs: { href: "/" } }, [
+          _c("img", {
+            staticClass: "header-nav__logo",
+            attrs: { src: "/images/header-logo.png" }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("nav", { staticClass: "navbar navbar-default navbar-static-top" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "navbar-header" }, [
+            _c(
+              "button",
+              {
+                staticClass: "navbar-toggle",
+                attrs: {
+                  type: "button",
+                  "data-toggle": "collapse",
+                  "data-target": "#navbar-ex-collapse"
+                }
+              },
+              [
+                _c("span", { staticClass: "sr-only" }, [
+                  _vm._v("Toggle navigation")
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "icon-bar" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "icon-bar" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "icon-bar" })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "navbar-brand",
+                attrs: { id: "header-nav__home", href: "/" }
+              },
+              [_vm._v("ホーム")]
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "collapse navbar-collapse",
+              attrs: { id: "navbar-ex-collapse" }
+            },
+            [
+              _c("ul", { staticClass: "nav navbar-nav navbar-right" }, [
+                _c("li", [
+                  _c(
+                    "a",
+                    { attrs: { id: "header-nav__login", href: "/login" } },
+                    [_vm._v("ログイン")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      attrs: { id: "header-nav__register", href: "/register" }
+                    },
+                    [_vm._v("ユーザー登録")]
+                  )
+                ])
+              ])
+            ]
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("article", { staticClass: "col-md-8 col-xs-12" }, [
+      _c("section", { staticClass: "home-quiz__introduction" }, [
+        _c("h2", { staticClass: "home-quiz__introduction-h2" }, [
+          _c("img", {
+            staticClass: "home-quiz__introduction-h2-logo",
+            attrs: { src: "/images/what-is-mark.png" }
+          }),
+          _vm._v("4 Answers Quizとは?\n          ")
+        ]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v(
+            "4 Answers Quizとはビジネスマナーから一般常識に至るまで様々なクイズを4択で出題するWEBアプリです。"
+          )
+        ]),
+        _vm._v(" "),
+        _c("p", [
+          _vm._v("何度もトライしてみて正解率100%を目指してみてください。")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "home-quiz__setting" }, [
+        _c("h2", { staticClass: "home-quiz__setting-h2" }, [
+          _c("img", {
+            staticClass: "home-quiz__setting-h2-logo",
+            attrs: { src: "/images/directory-icon.png" }
+          }),
+          _vm._v("出題設定\n          ")
+        ]),
+        _vm._v(" "),
+        _c("form", { attrs: { action: "/quiz", method: "post" } }, [
+          _c("label", [
+            _c("input", {
+              attrs: {
+                type: "checkbox",
+                name: "categories[]",
+                value: "1",
+                checked: ""
+              }
+            }),
+            _vm._v("ビジネスマナー\n            ")
+          ]),
+          _vm._v(" "),
+          _c("label", [
+            _c("input", {
+              attrs: { type: "checkbox", name: "categories[]", value: "2" }
+            }),
+            _vm._v("一般常識\n            ")
+          ]),
+          _vm._v(" "),
+          _c("label", [
+            _c("input", {
+              attrs: { type: "checkbox", name: "categories[]", value: "3" }
+            }),
+            _vm._v("就職・転職\n            ")
+          ]),
+          _vm._v(" "),
+          _c("label", [
+            _c("input", {
+              attrs: { type: "checkbox", name: "categories[]", value: "4" }
+            }),
+            _vm._v("法律\n            ")
+          ]),
+          _vm._v(" "),
+          _c("label", [
+            _c("input", {
+              attrs: { type: "checkbox", name: "categories[]", value: "5" }
+            }),
+            _vm._v("IT\n            ")
+          ]),
+          _vm._v(" "),
+          _c("label", [
+            _c("input", {
+              attrs: { type: "checkbox", name: "categories[]", value: "6" }
+            }),
+            _vm._v("雑学\n            ")
+          ]),
+          _vm._v(" "),
+          _c("div", {}, [
+            _vm._v("\n              全項目チェック\n              "),
+            _c(
+              "button",
+              {
+                attrs: {
+                  type: "button",
+                  name: "check_all",
+                  id: "check-all",
+                  value: "1"
+                }
+              },
+              [_vm._v("ON")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                attrs: {
+                  type: "button",
+                  name: "check_all_off",
+                  id: "check-all-off",
+                  value: "1"
+                }
+              },
+              [_vm._v("OFF")]
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "button",
+            { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+            [_vm._v("出題開始")]
+          ),
+          _vm._v(" "),
+          _c("input", { attrs: { type: "hidden", name: "_token", value: "" } })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "home-quiz__ranking" }, [
+        _c("h2", { staticClass: "home-quiz__ranking-h2" }, [
+          _c("img", {
+            staticClass: "home-quiz__ranking-h2-logo",
+            attrs: { src: "/images/graph-icon.png" }
+          }),
+          _vm._v("ランキング\n          ")
+        ]),
+        _vm._v(" "),
+        _c("div", [
+          _c("label", [
+            _c("input", {
+              staticClass: "ranking-radio",
+              attrs: {
+                type: "radio",
+                name: "ranking-radio",
+                value: "1",
+                checked: ""
+              }
+            }),
+            _vm._v("総合\n            ")
+          ]),
+          _vm._v(" "),
+          _c("label", [
+            _c("input", {
+              staticClass: "ranking-radio",
+              attrs: { type: "radio", name: "ranking-radio", value: "2" }
+            }),
+            _vm._v("今月\n            ")
+          ]),
+          _vm._v(" "),
+          _c("label", [
+            _c("input", {
+              staticClass: "ranking-radio",
+              attrs: { type: "radio", name: "ranking-radio", value: "3" }
+            }),
+            _vm._v("今週\n            ")
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "home_quiz__ranking-chart" })
+      ]),
+      _vm._v(" "),
+      _c("section", { staticClass: "home__notice" }, [
+        _c("h2", { staticClass: "home__notice-h2" }, [
+          _c("img", {
+            staticClass: "home__notice-h2-logo",
+            attrs: { src: "/images/news-icon.png" }
+          }),
+          _vm._v("お知らせ情報\n          ")
+        ]),
+        _vm._v(" "),
+        _c("dl", [
+          _c("dt", [_vm._v("2019/08/23")]),
+          _vm._v(" "),
+          _c("dd", [_vm._v("サイトを開設しました。")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "sidebar-keywords" }, [
+      _c("h3", { staticClass: "text-center sidebar-keywords-h3" }, [
+        _vm._v("キーワード集")
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "sidebar-keywords__links" }, [
+        _c("li", [
+          _c("a", { attrs: { href: "/keyword?initial=A" } }, [_vm._v("Ａ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=B" } }, [_vm._v("Ｂ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=C" } }, [_vm._v("Ｃ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=D" } }, [_vm._v("Ｄ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=E" } }, [_vm._v("Ｅ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=F" } }, [_vm._v("Ｆ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=G" } }, [_vm._v("Ｇ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=H" } }, [_vm._v("Ｈ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=I" } }, [_vm._v("Ｉ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=J" } }, [_vm._v("Ｊ")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/keyword?initial=K" } }, [_vm._v("Ｋ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=L" } }, [_vm._v("Ｌ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=M" } }, [_vm._v("Ｍ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=N" } }, [_vm._v("Ｎ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=O" } }, [_vm._v("Ｏ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=P" } }, [_vm._v("Ｐ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=Q" } }, [_vm._v("Ｑ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=R" } }, [_vm._v("Ｒ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=S" } }, [_vm._v("Ｓ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=T" } }, [_vm._v("Ｔ")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/keyword?initial=U" } }, [_vm._v("Ｕ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=V" } }, [_vm._v("Ｖ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=W" } }, [_vm._v("Ｗ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=X" } }, [_vm._v("Ｘ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=Y" } }, [_vm._v("Ｙ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=Z" } }, [_vm._v("Ｚ")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/keyword?initial=あ" } }, [_vm._v("あ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=い" } }, [_vm._v("い")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=う" } }, [_vm._v("う")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=え" } }, [_vm._v("え")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=お" } }, [_vm._v("お")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=か" } }, [_vm._v("か")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=き" } }, [_vm._v("き")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=く" } }, [_vm._v("く")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=け" } }, [_vm._v("け")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=こ" } }, [_vm._v("こ")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/keyword?initial=さ" } }, [_vm._v("さ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=し" } }, [_vm._v("し")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=す" } }, [_vm._v("す")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=せ" } }, [_vm._v("せ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=そ" } }, [_vm._v("そ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=た" } }, [_vm._v("た")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=ち" } }, [_vm._v("ち")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=つ" } }, [_vm._v("つ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=て" } }, [_vm._v("て")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=と" } }, [_vm._v("と")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/keyword?initial=な" } }, [_vm._v("な")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=に" } }, [_vm._v("に")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=ぬ" } }, [_vm._v("ぬ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=ね" } }, [_vm._v("ね")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=の" } }, [_vm._v("の")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=は" } }, [_vm._v("は")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=ひ" } }, [_vm._v("ひ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=ふ" } }, [_vm._v("ふ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=へ" } }, [_vm._v("へ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=ほ" } }, [_vm._v("ほ")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/keyword?initial=ま" } }, [_vm._v("ま")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=み" } }, [_vm._v("み")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=む" } }, [_vm._v("む")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=め" } }, [_vm._v("め")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=も" } }, [_vm._v("も")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=ら" } }, [_vm._v("ら")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=り" } }, [_vm._v("り")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=る" } }, [_vm._v("る")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=れ" } }, [_vm._v("れ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=ろ" } }, [_vm._v("ろ")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/keyword?initial=や" } }, [_vm._v("や")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=ゆ" } }, [_vm._v("ゆ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=よ" } }, [_vm._v("よ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=わ" } }, [_vm._v("わ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=を" } }, [_vm._v("を")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("footer", [
+      _c("div", { staticClass: "container text-center" }, [
+        _c("small", [_vm._v("© 2019 4Answers-quiz. All rights reserved.")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/page/quiz.vue?vue&type=template&id=f6144ccc&":
+/*!************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/page/quiz.vue?vue&type=template&id=f6144ccc& ***!
+  \************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("main", [
+      _c("div", { staticClass: "container" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c("aside", { staticClass: "col-md-4 col-xs-12" }, [
+          _c("section", { staticClass: "sidebar-sns-section" }, [
+            _c("h3", { staticClass: "text-center sidebar-sns-h3" }, [
+              _vm._v("SNS共有")
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "sidebar-sns-links" },
+              [
+                _c("social-sharing", {
+                  attrs: { title: "shareボタン" },
+                  inlineTemplate: {
+                    render: function() {
+                      var _vm = this
+                      var _h = _vm.$createElement
+                      var _c = _vm._self._c || _h
+                      return _c(
+                        "div",
+                        { staticClass: "twitter__share" },
+                        [
+                          _c("network", { attrs: { network: "twitter" } }, [
+                            _c("i", { staticClass: "fab fa-twitter" }),
+                            _vm._v(" Twitter\n                ")
+                          ])
+                        ],
+                        1
+                      )
+                    },
+                    staticRenderFns: []
+                  }
+                }),
+                _vm._v(" "),
+                _c("social-sharing", {
+                  attrs: { title: "shareボタン" },
+                  inlineTemplate: {
+                    render: function() {
+                      var _vm = this
+                      var _h = _vm.$createElement
+                      var _c = _vm._self._c || _h
+                      return _c(
+                        "div",
+                        { staticClass: "facebook__share" },
+                        [
+                          _c("network", { attrs: { network: "facebook" } }, [
+                            _c("i", { staticClass: "fab fa-facebook" }),
+                            _vm._v(" Facebook\n                ")
+                          ])
+                        ],
+                        1
+                      )
+                    },
+                    staticRenderFns: []
+                  }
+                }),
+                _vm._v(" "),
+                _c("social-sharing", {
+                  attrs: { title: "shareボタン" },
+                  inlineTemplate: {
+                    render: function() {
+                      var _vm = this
+                      var _h = _vm.$createElement
+                      var _c = _vm._self._c || _h
+                      return _c(
+                        "div",
+                        { staticClass: "line__share" },
+                        [
+                          _c("network", { attrs: { network: "line" } }, [
+                            _c("i", { staticClass: "fab fa-line" }),
+                            _vm._v(" Line\n                ")
+                          ])
+                        ],
+                        1
+                      )
+                    },
+                    staticRenderFns: []
+                  }
+                }),
+                _vm._v(" "),
+                _c("social-sharing", {
+                  attrs: { title: "shareボタン" },
+                  inlineTemplate: {
+                    render: function() {
+                      var _vm = this
+                      var _h = _vm.$createElement
+                      var _c = _vm._self._c || _h
+                      return _c(
+                        "div",
+                        { staticClass: "google__share" },
+                        [
+                          _c("network", { attrs: { network: "googleplus" } }, [
+                            _c("i", { staticClass: "fab fa-google" }),
+                            _vm._v(" google\n                ")
+                          ])
+                        ],
+                        1
+                      )
+                    },
+                    staticRenderFns: []
+                  }
+                })
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _vm._m(2)
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _vm._m(3)
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("header", [
+      _c("div", { staticClass: "container text-center" }, [
+        _c("h1", [_vm._v("4 Answers Quiz 4択クイズ&クイズ徹底解説")]),
+        _vm._v(" "),
+        _c("a", { attrs: { href: "/" } }, [
+          _c("img", {
+            staticClass: "header-nav__logo",
+            attrs: { src: "/images/header-logo.png" }
+          })
+        ])
+      ]),
+      _vm._v(" "),
+      _c("nav", { staticClass: "navbar navbar-default navbar-static-top" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "navbar-header" }, [
+            _c(
+              "button",
+              {
+                staticClass: "navbar-toggle",
+                attrs: {
+                  type: "button",
+                  "data-toggle": "collapse",
+                  "data-target": "#navbar-ex-collapse"
+                }
+              },
+              [
+                _c("span", { staticClass: "sr-only" }, [
+                  _vm._v("Toggle navigation")
+                ]),
+                _vm._v(" "),
+                _c("span", { staticClass: "icon-bar" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "icon-bar" }),
+                _vm._v(" "),
+                _c("span", { staticClass: "icon-bar" })
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "navbar-brand",
+                attrs: { id: "header-nav__home", href: "/" }
+              },
+              [_vm._v("ホーム")]
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            {
+              staticClass: "collapse navbar-collapse",
+              attrs: { id: "navbar-ex-collapse" }
+            },
+            [
+              _c("ul", { staticClass: "nav navbar-nav navbar-right" }, [
+                _c("li", [
+                  _c(
+                    "a",
+                    { attrs: { id: "header-nav__login", href: "/login" } },
+                    [_vm._v("ログイン")]
+                  )
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c(
+                    "a",
+                    {
+                      attrs: { id: "header-nav__register", href: "/register" }
+                    },
+                    [_vm._v("ユーザー登録")]
+                  )
+                ])
+              ])
+            ]
+          )
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("article", { staticClass: "col-md-8 col-xs-12" }, [
+      _c("section", [
+        _c("h2", { staticClass: "quiz-question-h2" }, [
+          _c("img", {
+            staticClass: "quiz-question__logo",
+            attrs: { src: "/images/what-is-mark.png" }
+          }),
+          _vm._v("\n            第1問\n          ")
+        ]),
+        _vm._v(" "),
+        _c("p", [_vm._v("正しい敬語を使った表現を１つ選んでください。")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "quiz-answer__list" }, [
+          _c("ul", [
+            _c("li", [
+              _c("a", [_c("button", [_vm._v("1")])]),
+              _vm._v(
+                "\n                受付でうかがってください。\n              "
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", [_c("button", [_vm._v("2")])]),
+              _vm._v(
+                "\n                課長がおっしゃったように、ファイルをご覧ください。\n              "
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", [_c("button", [_vm._v("3")])]),
+              _vm._v(
+                "\n                部長が申されたように進めていきます。\n              "
+              )
+            ]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", [_c("button", [_vm._v("4")])]),
+              _vm._v(
+                "\n                ○△商事の□□様がお越しになられました。\n              "
+              )
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("section", [
+        _c("h2", { staticClass: "quiz-correct-h2" }, [
+          _c("img", {
+            staticClass: "quiz-correct__logo",
+            attrs: { src: "/images/correct-mark.png" }
+          }),
+          _vm._v("正解\n          ")
+        ]),
+        _vm._v(" "),
+        _c("p", [
+          _c("button", { staticClass: "quiz-correct-answer" }, [_vm._v("1")])
+        ]),
+        _vm._v(" "),
+        _c("button", [_vm._v("正解を表示する")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "alert alert-info" }, [
+          _c("strong", [_vm._v("正解!")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "alert alert-danger" }, [
+          _c("strong", [_vm._v("不正解!")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("section", [
+        _c("h2", { staticClass: "quiz-commentary-h2" }, [
+          _c("img", {
+            staticClass: "quiz-commentary__logo",
+            attrs: { src: "/images/commentary-mark.png" }
+          }),
+          _vm._v("解説\n          ")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "quiz-commentary__text" }, [
+          _vm._v("\n            1）3）4）は、どこが間違っていたの？ "),
+          _c("br"),
+          _vm._v("\n            1）受付でうかがってください。"),
+          _c("br"),
+          _vm._v(
+            "\n            「うかがう」は謙譲語。謙譲語は自分または身内（自分の会社も含みます）の者に使う言葉で、相手に使うのは間違いです。"
+          ),
+          _c("br"),
+          _vm._v("\n            『受付でお尋ねください。』が正解です。"),
+          _c("br"),
+          _c("br"),
+          _vm._v("\n            3）部長が申されたように進めていきます。"),
+          _c("br"),
+          _vm._v(
+            "\n            「申す」も謙譲語です。謙譲語にれる・られるを付けても尊敬語にはなりません。"
+          ),
+          _c("br"),
+          _vm._v(
+            "\n            『社長がおっしゃったように進めていきます。』が正解です。"
+          ),
+          _c("br"),
+          _c("br"),
+          _vm._v("\n            4）○△商事の□□様がお越しになられました。"),
+          _c("br"),
+          _vm._v(
+            "\n            「なられました」は二重敬語の典型的な表現です。"
+          ),
+          _c("br"),
+          _vm._v(
+            "\n            『○△商事の□□様がお越しになりました。』が正解です。"
+          ),
+          _c("br")
+        ]),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary center-block",
+            attrs: { type: "button" }
+          },
+          [_vm._v("次の問題へ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "center-block", attrs: { type: "button" } },
+          [_vm._v("結果を見る")]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "sidebar-keywords" }, [
+      _c("h3", { staticClass: "text-center sidebar-keywords-h3" }, [
+        _vm._v("キーワード集")
+      ]),
+      _vm._v(" "),
+      _c("ul", { staticClass: "sidebar-keywords__links" }, [
+        _c("li", [
+          _c("a", { attrs: { href: "/keyword?initial=A" } }, [_vm._v("Ａ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=B" } }, [_vm._v("Ｂ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=C" } }, [_vm._v("Ｃ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=D" } }, [_vm._v("Ｄ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=E" } }, [_vm._v("Ｅ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=F" } }, [_vm._v("Ｆ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=G" } }, [_vm._v("Ｇ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=H" } }, [_vm._v("Ｈ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=I" } }, [_vm._v("Ｉ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=J" } }, [_vm._v("Ｊ")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/keyword?initial=K" } }, [_vm._v("Ｋ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=L" } }, [_vm._v("Ｌ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=M" } }, [_vm._v("Ｍ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=N" } }, [_vm._v("Ｎ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=O" } }, [_vm._v("Ｏ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=P" } }, [_vm._v("Ｐ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=Q" } }, [_vm._v("Ｑ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=R" } }, [_vm._v("Ｒ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=S" } }, [_vm._v("Ｓ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=T" } }, [_vm._v("Ｔ")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/keyword?initial=U" } }, [_vm._v("Ｕ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=V" } }, [_vm._v("Ｖ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=W" } }, [_vm._v("Ｗ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=X" } }, [_vm._v("Ｘ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=Y" } }, [_vm._v("Ｙ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=Z" } }, [_vm._v("Ｚ")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/keyword?initial=あ" } }, [_vm._v("あ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=い" } }, [_vm._v("い")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=う" } }, [_vm._v("う")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=え" } }, [_vm._v("え")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=お" } }, [_vm._v("お")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=か" } }, [_vm._v("か")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=き" } }, [_vm._v("き")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=く" } }, [_vm._v("く")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=け" } }, [_vm._v("け")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=こ" } }, [_vm._v("こ")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/keyword?initial=さ" } }, [_vm._v("さ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=し" } }, [_vm._v("し")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=す" } }, [_vm._v("す")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=せ" } }, [_vm._v("せ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=そ" } }, [_vm._v("そ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=た" } }, [_vm._v("た")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=ち" } }, [_vm._v("ち")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=つ" } }, [_vm._v("つ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=て" } }, [_vm._v("て")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=と" } }, [_vm._v("と")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/keyword?initial=な" } }, [_vm._v("な")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=に" } }, [_vm._v("に")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=ぬ" } }, [_vm._v("ぬ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=ね" } }, [_vm._v("ね")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=の" } }, [_vm._v("の")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=は" } }, [_vm._v("は")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=ひ" } }, [_vm._v("ひ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=ふ" } }, [_vm._v("ふ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=へ" } }, [_vm._v("へ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=ほ" } }, [_vm._v("ほ")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/keyword?initial=ま" } }, [_vm._v("ま")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=み" } }, [_vm._v("み")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=む" } }, [_vm._v("む")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=め" } }, [_vm._v("め")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=も" } }, [_vm._v("も")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=ら" } }, [_vm._v("ら")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=り" } }, [_vm._v("り")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=る" } }, [_vm._v("る")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=れ" } }, [_vm._v("れ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=ろ" } }, [_vm._v("ろ")])
+        ]),
+        _vm._v(" "),
+        _c("li", [
+          _c("a", { attrs: { href: "/keyword?initial=や" } }, [_vm._v("や")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=ゆ" } }, [_vm._v("ゆ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=よ" } }, [_vm._v("よ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=わ" } }, [_vm._v("わ")]),
+          _vm._v(" "),
+          _c("a", { attrs: { href: "/keyword?initial=を" } }, [_vm._v("を")])
+        ])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("footer", [
+      _c("div", { staticClass: "container text-center" }, [
+        _c("small", [_vm._v("© 2019 4Answers-quiz. All rights reserved.")])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -3716,6 +4823,17 @@ if (inBrowser && window.Vue) {
 
 /* harmony default export */ __webpack_exports__["default"] = (VueRouter);
 
+
+/***/ }),
+
+/***/ "./node_modules/vue-social-sharing/dist/vue-social-sharing.js":
+/*!********************************************************************!*\
+  !*** ./node_modules/vue-social-sharing/dist/vue-social-sharing.js ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(t,e){ true?module.exports=e():undefined}("undefined"!=typeof self?self:this,(function(){return function(t){var e={};function i(r){if(e[r])return e[r].exports;var n=e[r]={i:r,l:!1,exports:{}};return t[r].call(n.exports,n,n.exports,i),n.l=!0,n.exports}return i.m=t,i.c=e,i.d=function(t,e,r){i.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:r})},i.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},i.t=function(t,e){if(1&e&&(t=i(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var r=Object.create(null);if(i.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var n in t)i.d(r,n,function(e){return t[e]}.bind(null,n));return r},i.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return i.d(e,"a",e),e},i.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},i.p="",i(i.s=0)}([function(t,e,i){t.exports=i(1)},function(t,e,i){"use strict";i.r(e),i.d(e,"ShareNetwork",(function(){return o}));var r={baidu:"http://cang.baidu.com/do/add?iu=@u&it=@t",buffer:"https://bufferapp.com/add?text=@t&url=@u",email:"mailto:?subject=@t&body=@u%0D%0A@d",evernote:"https://www.evernote.com/clip.action?url=@u&title=@t",facebook:"https://www.facebook.com/sharer/sharer.php?u=@u&title=@t&description=@d&quote=@q&hashtag=@h",flipboard:"https://share.flipboard.com/bookmarklet/popout?v=2&url=@u&title=@t",hackernews:"https://news.ycombinator.com/submitlink?u=@u&t=@t",instapaper:"http://www.instapaper.com/edit?url=@u&title=@t&description=@d",line:"http://line.me/R/msg/text/?@t%0D%0A@u%0D%0A@d",linkedin:"https://www.linkedin.com/sharing/share-offsite/?url=@u",odnoklassniki:"https://connect.ok.ru/dk?st.cmd=WidgetSharePreview&st.shareUrl=@u&st.comments=@t",pinterest:"https://pinterest.com/pin/create/button/?url=@u&media=@m&description=@t",pocket:"https://getpocket.com/save?url=@u&title=@t",quora:"https://www.quora.com/share?url=@u&title=@t",reddit:"https://www.reddit.com/submit?url=@u&title=@t",skype:"https://web.skype.com/share?url=@t%0D%0A@u%0D%0A@d",sms:"sms:?body=@t%0D%0A@u%0D%0A@d",stumbleupon:"https://www.stumbleupon.com/submit?url=@u&title=@t",telegram:"https://t.me/share/url?url=@u&text=@t%0D%0A@d",tumblr:"https://www.tumblr.com/share/link?url=@u&name=@t&description=@d",twitter:"https://twitter.com/intent/tweet?text=@t&url=@u&hashtags=@h@tu",viber:"viber://forward?text=@t%0D%0A@u%0D%0A@d",vk:"https://vk.com/share.php?url=@u&title=@t&description=@d&image=@m&noparse=true",weibo:"http://service.weibo.com/share/share.php?url=@u&title=@t&pic=@m",whatsapp:"https://api.whatsapp.com/send?text=@t%0D%0A@u%0D%0A@d",wordpress:"https://wordpress.com/press-this.php?u=@u&t=@t&s=@d&i=@m",xing:"https://www.xing.com/app/user?op=share&url=@u&title=@t",yammer:"https://www.yammer.com/messages/new?login=true&status=@t%0D%0A@u%0D%0A@d"},n="undefined"!=typeof window?window:null;var o={name:"ShareNetwork",props:{network:{type:String,required:!0},url:{type:String,required:!0},title:{type:String,required:!0},description:{type:String,default:""},quote:{type:String,default:""},hashtags:{type:String,default:""},twitterUser:{type:String,default:""},media:{type:String,default:""},tag:{type:String,default:"a"}},data:function(){return{popup:{width:626,height:436,top:0,left:0,window:void 0,interval:null}}},computed:{networks:function(){return this.$SocialSharing?this.$SocialSharing.options.networks:r},key:function(){return this.network.toLowerCase()},rawLink:function(){var t=navigator.userAgent.toLowerCase();return"sms"===this.key&&(t.indexOf("iphone")>-1||t.indexOf("ipad")>-1)?this.networks[this.key].replace(":?",":&"):this.networks[this.key]},shareLink:function(){var t=this.rawLink;return"twitter"===this.key&&(this.hashtags.length||(t=t.replace("&hashtags=@h","")),this.twitterUser.length||(t=t.replace("@tu",""))),t.replace(/@tu/g,"&via="+encodeURIComponent(this.twitterUser)).replace(/@u/g,encodeURIComponent(this.url)).replace(/@t/g,encodeURIComponent(this.title)).replace(/@d/g,encodeURIComponent(this.description)).replace(/@q/g,encodeURIComponent(this.quote)).replace(/@h/g,this.encodedHashtags).replace(/@m/g,encodeURIComponent(this.media))},encodedHashtags:function(){return"facebook"===this.key&&this.hashtags.length?"%23"+this.hashtags.split(",")[0]:this.hashtags}},render:function(t){var e=this;if(!this.networks.hasOwnProperty(this.key))throw new Error("Network "+this.key+" does not exist");return t(this.tag,{class:"share-network-"+this.key,on:{click:function(){return e["http"===e.rawLink.substring(0,4)?"share":"touch"]()}}},this.$slots.default)},methods:{resizePopup:function(){var t=n.innerWidth||document.documentElement.clientWidth||n.screenX,e=n.innerHeight||document.documentElement.clientHeight||n.screenY,i=t/n.screen.availWidth;this.popup.left=(t-this.popup.width)/2/i+(void 0!==n.screenLeft?n.screenLeft:n.screenX),this.popup.top=(e-this.popup.height)/2/i+(void 0!==n.screenTop?n.screenTop:n.screenY)},share:function(){var t=this;this.resizePopup(),this.popup.window&&this.popup.interval&&(clearInterval(this.popup.interval),this.popup.window.close(),this.emit("change")),this.popup.window=n.open(this.shareLink,"sharer",",height="+this.popup.height+",width="+this.popup.width+",left="+this.popup.left+",top="+this.popup.top+",screenX="+this.popup.left+",screenY="+this.popup.top),this.popup.window.focus(),this.popup.interval=setInterval((function(){t.popup.window&&!t.popup.window.closed||(clearInterval(t.popup.interval),t.popup.window=null,t.emit("close"))}),500),this.emit("open")},touch:function(){window.open(this.shareLink,"_blank"),this.emit("open")},emit:function(t){this.$root.$emit("share_network_"+t,this.key,this.url),this.$emit(t,this.key,this.url)}}};e.default={install:function(t,e){t.component(o.name,o),t.prototype.$SocialSharing={options:{networks:e&&e.hasOwnProperty("networks")?Object.assign(r,e.networks):r}}}}}])}));
 
 /***/ }),
 
@@ -15789,6 +16907,59 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/page/quiz.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/components/page/quiz.vue ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _quiz_vue_vue_type_template_id_f6144ccc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./quiz.vue?vue&type=template&id=f6144ccc& */ "./resources/js/components/page/quiz.vue?vue&type=template&id=f6144ccc&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _quiz_vue_vue_type_template_id_f6144ccc___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _quiz_vue_vue_type_template_id_f6144ccc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/page/quiz.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/page/quiz.vue?vue&type=template&id=f6144ccc&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/page/quiz.vue?vue&type=template&id=f6144ccc& ***!
+  \******************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_quiz_vue_vue_type_template_id_f6144ccc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./quiz.vue?vue&type=template&id=f6144ccc& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/page/quiz.vue?vue&type=template&id=f6144ccc&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_quiz_vue_vue_type_template_id_f6144ccc___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_quiz_vue_vue_type_template_id_f6144ccc___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/router.js":
 /*!********************************!*\
   !*** ./resources/js/router.js ***!
@@ -15802,16 +16973,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _components_home_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/home.vue */ "./resources/js/components/home.vue");
+/* harmony import */ var _components_page_quiz__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/page/quiz */ "./resources/js/components/page/quiz.vue");
+/* harmony import */ var vue_social_sharing__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! vue-social-sharing */ "./node_modules/vue-social-sharing/dist/vue-social-sharing.js");
+/* harmony import */ var vue_social_sharing__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(vue_social_sharing__WEBPACK_IMPORTED_MODULE_4__);
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_social_sharing__WEBPACK_IMPORTED_MODULE_4___default.a);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: "history",
   routes: [{
     path: "/",
     name: _components_home_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     component: _components_home_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  }, {
+    path: '/quiz',
+    name: _components_page_quiz__WEBPACK_IMPORTED_MODULE_3__["default"],
+    component: _components_page_quiz__WEBPACK_IMPORTED_MODULE_3__["default"]
   }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);
