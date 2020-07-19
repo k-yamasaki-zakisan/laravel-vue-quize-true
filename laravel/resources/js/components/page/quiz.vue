@@ -83,6 +83,7 @@
 import TheHeader from "../layout/TheHeader";
 import TheFooter from "../layout/TheFooter";
 import TheSidebar from "../layout/TheSidebar";
+import axios from 'axios';
 
 export default {
   components: {
@@ -108,14 +109,25 @@ export default {
     };
   },
   mounted() {
-    const categories = this.$route.query.categories;
-    this.$http.get(`/api/quiz?categories=${categories}`).then(response => {
-      this.quizData = response.data;
-      this.findNextQuiz(0);
-      console.log(this.quizData);
-    });
+    // const categories = this.$route.query.categories;
+    // this.$http.get(`/api/quiz?categories=${categories}`).then(response => {
+    //   this.quizData = response.data;
+    //   this.findNextQuiz(0);
+    //   console.log(this.quizData);
+    // });
+    this.getQuizList();
   },
   methods: {
+    getQuizList() {
+      const categories = this.$route.query.categories;
+      axios
+      .get(`/api/quiz?categories=${categories}`)
+      .then(response => {
+        this.quizData = response.data;
+        this.findNextQuiz(0);
+        console.log(this.quizData);
+      })
+    },
     goAnswer(selectAnswerNum) {
       if (selectAnswerNum === 0) {
         // selectAnswerNumが0の場合は、click 「正解を表示する」ボタンのクリック alert-info、alert-dangerを非表示
