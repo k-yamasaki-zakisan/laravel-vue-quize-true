@@ -5,7 +5,7 @@ Vue.use(VueRouter);
 
 import home from "./components/page/Home";
 import quiz from "./components/page/Quiz";
-import register from './components/page/Register'
+import register from "./components/page/Register";
 
 const router = new VueRouter({
     mode: "history",

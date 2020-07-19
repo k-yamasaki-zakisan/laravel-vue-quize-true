@@ -27,3 +27,5 @@ Route::get('/quiz', function () {
 Route::get('/register', function () {
     return view('auth.register.index');
 });
+
+Route::post('/register', 'Auth\RegisterController@register');

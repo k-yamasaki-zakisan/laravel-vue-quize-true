@@ -1,11 +1,9 @@
-import Vue from 'vue'
-import App from './components/page/Quiz'
-import SocialSharing from 'vue-social-sharing'
+// import Vue from 'vue'
+// import App from './components/page/Quiz'
 
-Vue.use(SocialSharing)
-new Vue({
-  el: 'app',
-  components: {
-    app: App
-  }
-})
+// new Vue({
+//   el: 'app',
+//   components: {
+//     app: App
+//   }
+// })
