@@ -1936,6 +1936,111 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/module/PieChart.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/module/PieChart.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_chartjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-chartjs */ "./node_modules/vue-chartjs/es/index.js");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  "extends": vue_chartjs__WEBPACK_IMPORTED_MODULE_0__["Pie"],
+  props: {
+    chartData: {
+      type: Object
+    }
+  },
+  methods: {
+    renderPieChart: function renderPieChart() {
+      this.renderChart(this.chartData, {
+        borderWidth: "10px",
+        hoverBackgroundColor: "red",
+        hoverBorderWidth: "10px"
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/module/TheModal.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/module/TheModal.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PieChart__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PieChart */ "./resources/js/components/module/PieChart.vue");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    PieChart: _PieChart__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  props: {
+    correctPercentageObject: {
+      type: Object
+    }
+  },
+  data: function data() {
+    return {
+      chartOptions: {
+        hoverBorderWidth: 20
+      },
+      chartData: {
+        hoverBackgroundColor: "red",
+        hoverBorderWidth: 10,
+        labels: ["正解", "不正解"],
+        datasets: []
+      }
+    };
+  },
+  methods: {
+    render: function render() {
+      this.$set(this.chartData, "datasets", [{
+        backgroundColor: ["#00D8FF", "#E46651"],
+        data: [this.correctPercentageObject["correctScore"], this.correctPercentageObject["mistakeScore"]]
+      }]);
+      this.$refs.chart.renderPieChart();
+    },
+    quizFinish: function quizFinish() {
+      location.href = "/";
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/page/Home.vue?vue&type=script&lang=js&":
 /*!********************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/page/Home.vue?vue&type=script&lang=js& ***!
@@ -2070,8 +2175,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _layout_TheHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../layout/TheHeader */ "./resources/js/components/layout/TheHeader.vue");
 /* harmony import */ var _layout_TheFooter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../layout/TheFooter */ "./resources/js/components/layout/TheFooter.vue");
 /* harmony import */ var _layout_TheSidebar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../layout/TheSidebar */ "./resources/js/components/layout/TheSidebar.vue");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _module_TheModal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../module/TheModal */ "./resources/js/components/module/TheModal.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
 //
 //
 //
@@ -2153,6 +2259,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 
 
 
@@ -2161,7 +2269,8 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     TheHeader: _layout_TheHeader__WEBPACK_IMPORTED_MODULE_0__["default"],
     TheFooter: _layout_TheFooter__WEBPACK_IMPORTED_MODULE_1__["default"],
-    TheSidebar: _layout_TheSidebar__WEBPACK_IMPORTED_MODULE_2__["default"]
+    TheSidebar: _layout_TheSidebar__WEBPACK_IMPORTED_MODULE_2__["default"],
+    TheModal: _module_TheModal__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
@@ -2181,7 +2290,8 @@ __webpack_require__.r(__webpack_exports__);
       //クイズが終了したかどうか
       score: 0,
       quizNumber: 1,
-      categoryName: ""
+      categoryName: "",
+      correctPercentageObject: {}
     };
   },
   mounted: function mounted() {
@@ -2198,7 +2308,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       var categories = this.$route.query.categories;
-      axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("/api/quiz?categories=".concat(categories)).then(function (response) {
+      axios__WEBPACK_IMPORTED_MODULE_4___default.a.get("/api/quiz?categories=".concat(categories)).then(function (response) {
         _this.quizData = response.data;
 
         _this.findNextQuiz(0);
@@ -2254,6 +2364,13 @@ __webpack_require__.r(__webpack_exports__);
       this.isQuizFinish = true;
       this.answerNo = "-";
       this.isAlreadyAnswered = true;
+      this.correctPercentageObject = {
+        correctScore: this.score,
+        mistakeScore: 10 - this.score
+      };
+    },
+    showResult: function showResult() {
+      this.$refs.modal.render();
     }
   }
 });
@@ -40429,7 +40546,7 @@ var staticRenderFns = [
         _c("a", { attrs: { href: "/" } }, [
           _c("img", {
             staticClass: "header-nav__logo",
-            attrs: { src: "/public/images/header-logo.png" }
+            attrs: { src: "/images/header-logo.png" }
           })
         ])
       ]),
@@ -40524,113 +40641,265 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("aside", { staticClass: "col-md-4 col-xs-12" }, [
-    _c("section", { staticClass: "sidebar-sns-section" }, [
-      _c("h3", { staticClass: "text-center sidebar-sns-h3" }, [
-        _vm._v("SNS共有")
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("aside", { staticClass: "col-md-4 col-xs-12" }, [
+      _c("section", { staticClass: "sidebar-sns-section" }, [
+        _c("h3", { staticClass: "text-center sidebar-sns-h3" }, [
+          _vm._v("SNS共有")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "sidebar-sns-links" })
       ]),
       _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "sidebar-sns-links" },
-        [
-          _c("social-sharing", {
-            attrs: { title: "shareボタン" },
-            inlineTemplate: {
-              render: function() {
-                var _vm = this
-                var _h = _vm.$createElement
-                var _c = _vm._self._c || _h
-                return _c(
-                  "div",
-                  { staticClass: "twitter__share" },
-                  [
-                    _c("network", { attrs: { network: "twitter" } }, [
-                      _c("i", { staticClass: "fab fa-twitter" }),
-                      _vm._v(" Twitter\n          ")
-                    ])
-                  ],
-                  1
-                )
-              },
-              staticRenderFns: []
-            }
-          }),
+      _c("section", { staticClass: "sidebar-keywords" }, [
+        _c("h3", { staticClass: "text-center sidebar-keywords-h3" }, [
+          _vm._v("キーワード集")
+        ]),
+        _vm._v(" "),
+        _c("ul", { staticClass: "sidebar-keywords__links" }, [
+          _c("li", [
+            _c("a", { attrs: { href: "/keyword?initial=A" } }, [_vm._v("Ａ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=B" } }, [_vm._v("Ｂ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=C" } }, [_vm._v("Ｃ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=D" } }, [_vm._v("Ｄ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=E" } }, [_vm._v("Ｅ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=F" } }, [_vm._v("Ｆ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=G" } }, [_vm._v("Ｇ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=H" } }, [_vm._v("Ｈ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=I" } }, [_vm._v("Ｉ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=J" } }, [_vm._v("Ｊ")])
+          ]),
           _vm._v(" "),
-          _c("social-sharing", {
-            attrs: { title: "shareボタン" },
-            inlineTemplate: {
-              render: function() {
-                var _vm = this
-                var _h = _vm.$createElement
-                var _c = _vm._self._c || _h
-                return _c(
-                  "div",
-                  { staticClass: "facebook__share" },
-                  [
-                    _c("network", { attrs: { network: "facebook" } }, [
-                      _c("i", { staticClass: "fab fa-facebook" }),
-                      _vm._v(" Facebook\n          ")
-                    ])
-                  ],
-                  1
-                )
-              },
-              staticRenderFns: []
-            }
-          }),
+          _c("li", [
+            _c("a", { attrs: { href: "/keyword?initial=K" } }, [_vm._v("Ｋ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=L" } }, [_vm._v("Ｌ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=M" } }, [_vm._v("Ｍ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=N" } }, [_vm._v("Ｎ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=O" } }, [_vm._v("Ｏ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=P" } }, [_vm._v("Ｐ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=Q" } }, [_vm._v("Ｑ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=R" } }, [_vm._v("Ｒ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=S" } }, [_vm._v("Ｓ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=T" } }, [_vm._v("Ｔ")])
+          ]),
           _vm._v(" "),
-          _c("social-sharing", {
-            attrs: { title: "shareボタン" },
-            inlineTemplate: {
-              render: function() {
-                var _vm = this
-                var _h = _vm.$createElement
-                var _c = _vm._self._c || _h
-                return _c(
-                  "div",
-                  { staticClass: "line__share" },
-                  [
-                    _c("network", { attrs: { network: "line" } }, [
-                      _c("i", { staticClass: "fab fa-line" }),
-                      _vm._v(" Line\n          ")
-                    ])
-                  ],
-                  1
-                )
-              },
-              staticRenderFns: []
-            }
-          }),
+          _c("li", [
+            _c("a", { attrs: { href: "/keyword?initial=U" } }, [_vm._v("Ｕ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=V" } }, [_vm._v("Ｖ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=W" } }, [_vm._v("Ｗ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=X" } }, [_vm._v("Ｘ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=Y" } }, [_vm._v("Ｙ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=Z" } }, [_vm._v("Ｚ")])
+          ]),
           _vm._v(" "),
-          _c("social-sharing", {
-            attrs: { title: "shareボタン" },
-            inlineTemplate: {
-              render: function() {
-                var _vm = this
-                var _h = _vm.$createElement
-                var _c = _vm._self._c || _h
-                return _c(
-                  "div",
-                  { staticClass: "google__share" },
-                  [
-                    _c("network", { attrs: { network: "googleplus" } }, [
-                      _c("i", { staticClass: "fab fa-google" }),
-                      _vm._v(" google\n          ")
-                    ])
-                  ],
-                  1
-                )
-              },
-              staticRenderFns: []
-            }
-          })
-        ],
-        1
-      )
-    ]),
-    _vm._v(" "),
-    _vm._m(0)
+          _c("li", [
+            _c("a", { attrs: { href: "/keyword?initial=あ" } }, [_vm._v("あ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=い" } }, [_vm._v("い")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=う" } }, [_vm._v("う")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=え" } }, [_vm._v("え")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=お" } }, [_vm._v("お")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=か" } }, [_vm._v("か")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=き" } }, [_vm._v("き")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=く" } }, [_vm._v("く")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=け" } }, [_vm._v("け")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=こ" } }, [_vm._v("こ")])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "/keyword?initial=さ" } }, [_vm._v("さ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=し" } }, [_vm._v("し")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=す" } }, [_vm._v("す")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=せ" } }, [_vm._v("せ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=そ" } }, [_vm._v("そ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=た" } }, [_vm._v("た")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=ち" } }, [_vm._v("ち")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=つ" } }, [_vm._v("つ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=て" } }, [_vm._v("て")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=と" } }, [_vm._v("と")])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "/keyword?initial=な" } }, [_vm._v("な")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=に" } }, [_vm._v("に")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=ぬ" } }, [_vm._v("ぬ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=ね" } }, [_vm._v("ね")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=の" } }, [_vm._v("の")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=は" } }, [_vm._v("は")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=ひ" } }, [_vm._v("ひ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=ふ" } }, [_vm._v("ふ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=へ" } }, [_vm._v("へ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=ほ" } }, [_vm._v("ほ")])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "/keyword?initial=ま" } }, [_vm._v("ま")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=み" } }, [_vm._v("み")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=む" } }, [_vm._v("む")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=め" } }, [_vm._v("め")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=も" } }, [_vm._v("も")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=ら" } }, [_vm._v("ら")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=り" } }, [_vm._v("り")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=る" } }, [_vm._v("る")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=れ" } }, [_vm._v("れ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=ろ" } }, [_vm._v("ろ")])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "/keyword?initial=や" } }, [_vm._v("や")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=ゆ" } }, [_vm._v("ゆ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=よ" } }, [_vm._v("よ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=わ" } }, [_vm._v("わ")]),
+            _vm._v(" "),
+            _c("a", { attrs: { href: "/keyword?initial=を" } }, [_vm._v("を")])
+          ])
+        ])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/module/TheModal.vue?vue&type=template&id=10b5c3b8&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/module/TheModal.vue?vue&type=template&id=10b5c3b8& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: {
+          id: "modal-result",
+          tabindex: "-1",
+          "aria-hidden": "true",
+          role: "dialog"
+        }
+      },
+      [
+        _c("div", { staticClass: "modal-dialog" }, [
+          _c("div", { staticClass: "modal-content" }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "modal-body text-center" },
+              [
+                _c("pie-chart", {
+                  ref: "chart",
+                  attrs: { chartData: _vm.chartData }
+                }),
+                _vm._v(" "),
+                _c("div", [
+                  _vm._v(
+                    "正解率 " +
+                      _vm._s(_vm.correctPercentageObject["correctScore"] * 10) +
+                      " %"
+                  )
+                ]),
+                _vm._v(" "),
+                _c("input", { attrs: { type: "hidden", name: "correctRatio" } })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "modal-footer" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button" },
+                  on: { click: _vm.quizFinish }
+                },
+                [_vm._v("終了する")]
+              )
+            ])
+          ])
+        ])
+      ]
+    )
   ])
 }
 var staticRenderFns = [
@@ -40638,170 +40907,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "sidebar-keywords" }, [
-      _c("h3", { staticClass: "text-center sidebar-keywords-h3" }, [
-        _vm._v("キーワード集")
-      ]),
+    return _c("div", { staticClass: "modal-header" }, [
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_c("span", [_vm._v("×")])]
+      ),
       _vm._v(" "),
-      _c("ul", { staticClass: "sidebar-keywords__links" }, [
-        _c("li", [
-          _c("a", { attrs: { href: "/keyword?initial=A" } }, [_vm._v("Ａ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=B" } }, [_vm._v("Ｂ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=C" } }, [_vm._v("Ｃ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=D" } }, [_vm._v("Ｄ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=E" } }, [_vm._v("Ｅ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=F" } }, [_vm._v("Ｆ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=G" } }, [_vm._v("Ｇ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=H" } }, [_vm._v("Ｈ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=I" } }, [_vm._v("Ｉ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=J" } }, [_vm._v("Ｊ")])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "/keyword?initial=K" } }, [_vm._v("Ｋ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=L" } }, [_vm._v("Ｌ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=M" } }, [_vm._v("Ｍ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=N" } }, [_vm._v("Ｎ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=O" } }, [_vm._v("Ｏ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=P" } }, [_vm._v("Ｐ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=Q" } }, [_vm._v("Ｑ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=R" } }, [_vm._v("Ｒ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=S" } }, [_vm._v("Ｓ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=T" } }, [_vm._v("Ｔ")])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "/keyword?initial=U" } }, [_vm._v("Ｕ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=V" } }, [_vm._v("Ｖ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=W" } }, [_vm._v("Ｗ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=X" } }, [_vm._v("Ｘ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=Y" } }, [_vm._v("Ｙ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=Z" } }, [_vm._v("Ｚ")])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "/keyword?initial=あ" } }, [_vm._v("あ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=い" } }, [_vm._v("い")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=う" } }, [_vm._v("う")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=え" } }, [_vm._v("え")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=お" } }, [_vm._v("お")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=か" } }, [_vm._v("か")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=き" } }, [_vm._v("き")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=く" } }, [_vm._v("く")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=け" } }, [_vm._v("け")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=こ" } }, [_vm._v("こ")])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "/keyword?initial=さ" } }, [_vm._v("さ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=し" } }, [_vm._v("し")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=す" } }, [_vm._v("す")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=せ" } }, [_vm._v("せ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=そ" } }, [_vm._v("そ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=た" } }, [_vm._v("た")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=ち" } }, [_vm._v("ち")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=つ" } }, [_vm._v("つ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=て" } }, [_vm._v("て")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=と" } }, [_vm._v("と")])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "/keyword?initial=な" } }, [_vm._v("な")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=に" } }, [_vm._v("に")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=ぬ" } }, [_vm._v("ぬ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=ね" } }, [_vm._v("ね")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=の" } }, [_vm._v("の")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=は" } }, [_vm._v("は")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=ひ" } }, [_vm._v("ひ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=ふ" } }, [_vm._v("ふ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=へ" } }, [_vm._v("へ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=ほ" } }, [_vm._v("ほ")])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "/keyword?initial=ま" } }, [_vm._v("ま")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=み" } }, [_vm._v("み")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=む" } }, [_vm._v("む")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=め" } }, [_vm._v("め")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=も" } }, [_vm._v("も")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=ら" } }, [_vm._v("ら")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=り" } }, [_vm._v("り")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=る" } }, [_vm._v("る")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=れ" } }, [_vm._v("れ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=ろ" } }, [_vm._v("ろ")])
-        ]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "/keyword?initial=や" } }, [_vm._v("や")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=ゆ" } }, [_vm._v("ゆ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=よ" } }, [_vm._v("よ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=わ" } }, [_vm._v("わ")]),
-          _vm._v(" "),
-          _c("a", { attrs: { href: "/keyword?initial=を" } }, [_vm._v("を")])
-        ])
-      ])
+      _c("h4", { staticClass: "modal-title text-center" }, [_vm._v("正解率")])
     ])
   }
 ]
@@ -41316,7 +41432,12 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("the-footer")
+      _c("the-footer"),
+      _vm._v(" "),
+      _c("the-modal", {
+        ref: "modal",
+        attrs: { correctPercentageObject: _vm.correctPercentageObject }
+      })
     ],
     1
   )
@@ -56761,6 +56882,125 @@ component.options.__file = "resources/js/components/module/BarChart.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BarChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./BarChart.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/module/BarChart.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_BarChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/module/PieChart.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/module/PieChart.vue ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PieChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PieChart.vue?vue&type=script&lang=js& */ "./resources/js/components/module/PieChart.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  _PieChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"],
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/module/PieChart.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/module/PieChart.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/module/PieChart.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PieChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./PieChart.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/module/PieChart.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PieChart_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/module/TheModal.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/module/TheModal.vue ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _TheModal_vue_vue_type_template_id_10b5c3b8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TheModal.vue?vue&type=template&id=10b5c3b8& */ "./resources/js/components/module/TheModal.vue?vue&type=template&id=10b5c3b8&");
+/* harmony import */ var _TheModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TheModal.vue?vue&type=script&lang=js& */ "./resources/js/components/module/TheModal.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _TheModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _TheModal_vue_vue_type_template_id_10b5c3b8___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _TheModal_vue_vue_type_template_id_10b5c3b8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/module/TheModal.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/module/TheModal.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/module/TheModal.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TheModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./TheModal.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/module/TheModal.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_TheModal_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/module/TheModal.vue?vue&type=template&id=10b5c3b8&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/module/TheModal.vue?vue&type=template&id=10b5c3b8& ***!
+  \************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TheModal_vue_vue_type_template_id_10b5c3b8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./TheModal.vue?vue&type=template&id=10b5c3b8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/module/TheModal.vue?vue&type=template&id=10b5c3b8&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TheModal_vue_vue_type_template_id_10b5c3b8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_TheModal_vue_vue_type_template_id_10b5c3b8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 
