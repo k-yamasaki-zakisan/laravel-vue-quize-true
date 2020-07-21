@@ -89,6 +89,7 @@ export default {
     });
   },
   methods: {
+    // get category
     goQuiz() {
       this.$router.push("/quiz?categories=" + this.categories);
     }

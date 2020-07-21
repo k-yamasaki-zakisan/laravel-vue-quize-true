@@ -5,6 +5,7 @@ Vue.use(VueRouter);
 
 import home from "./components/page/Home";
 import quiz from "./components/page/Quiz";
+import login from './components/page/Login';
 import register from "./components/page/Register";
 
 const router = new VueRouter({
@@ -20,6 +21,11 @@ const router = new VueRouter({
             name: quiz,
             component: quiz
         },
+        {
+            path: '/login',
+            name: 'login',
+            component: login
+          },
         {
             path: '/register',
             name: register,
