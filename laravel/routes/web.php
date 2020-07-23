@@ -28,6 +28,10 @@ Route::get('/mypage', function () {
     return view('index');
   });
 
+Route::get('/keyword', function () {
+    return view('index');
+});
+
 Route::get('/login', function () {
     return view('auth.register.index');
 });
