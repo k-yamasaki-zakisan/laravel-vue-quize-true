@@ -8,6 +8,8 @@ import MainPage from './components/page/MainPage'
 // import App from './App.vue' 
 import 'bootstrap/dist/css/bootstrap.css' 
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.css';
 import axios from 'axios'
 import jQuery from "jquery";
 window.$ = window.jQuery = jQuery;
@@ -18,6 +20,8 @@ Vue.prototype.$http = axios;
 axios.defaults.headers.common['Authorization'] = "Bearer " + document
   .querySelector('meta[name="api-token"]')
   .getAttribute("content");
+
+Vue.use(Loading);
 
 Vue.use(BootstrapVue)
  
