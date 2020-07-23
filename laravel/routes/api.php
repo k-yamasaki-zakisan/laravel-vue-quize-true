@@ -23,3 +23,6 @@ Route::group(['middleware' => ['api']], function () {
     Route::get('quiz', 'Api\QuizController@index');
     Route::get('ranking', 'Api\RankingController@index');
 });
+
+#認証したuserのみがアクセス可能なルーティング
+Route::middleware('auth:api')->get('/mypage', 'Api\MypageController@index');

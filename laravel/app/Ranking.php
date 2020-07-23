@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Carbon\Carbon;
+
 class Ranking extends Model
 {
 
@@ -15,6 +17,12 @@ class Ranking extends Model
     $ranking->percentage_correct_answer = $correctRatio;
     $ranking->user_id = $userId;
     $ranking->save();
+  }
+
+  #日付の正規化の記述
+  public function getCreatedAtAttribute($date)
+  {
+    return Carbon::createFromFormat('Y-m-d H:i:s', $date)->format('Y/m/d');
   }
 
   public function user()
