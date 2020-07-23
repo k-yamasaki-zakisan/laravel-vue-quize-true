@@ -15,6 +15,8 @@ class CreateRankingsTable extends Migration
     {
         Schema::create('rankings', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('user_id');
+            $table->integer('percentage_correct_answer');
             $table->timestamps();
         });
     }

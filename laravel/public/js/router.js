@@ -2017,25 +2017,25 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   "extends": vue_chartjs__WEBPACK_IMPORTED_MODULE_0__["Bar"],
-  mounted: function mounted() {
-    this.renderChart({
-      labels: ["タ・ナカ", "Suzuki", "Saito", "Moriyama", "アオキ", "村町"],
-      datasets: [{
-        label: "最高得点率",
-        backgroundColor: "rgba(0, 170, 248, 0.47)",
-        data: [100, 90, 80, 70, 60, 50]
-      }]
-    }, {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true,
-            min: 0,
-            max: 100
-          }
-        }]
-      }
-    });
+  props: {
+    chartData: {
+      type: Object
+    }
+  },
+  methods: {
+    renderBarChart: function renderBarChart() {
+      this.renderChart(this.chartData, {
+        scales: {
+          yAxes: [{
+            ticks: {
+              beginAtZero: true,
+              min: 0,
+              max: 100
+            }
+          }]
+        }
+      });
+    }
   }
 });
 
@@ -2107,6 +2107,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -2127,7 +2128,8 @@ __webpack_require__.r(__webpack_exports__);
         hoverBorderWidth: 10,
         labels: ["正解", "不正解"],
         datasets: []
-      }
+      },
+      csrf: document.querySelector('meta[name="csrf-token"]').getAttribute("content")
     };
   },
   methods: {
@@ -2139,7 +2141,7 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.chart.renderPieChart();
     },
     quizFinish: function quizFinish() {
-      location.href = "/";
+      document.querySelector("#finish-form").submit();
     }
   }
 });
@@ -2157,6 +2159,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _layout_TheSidebar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../layout/TheSidebar */ "./resources/js/components/layout/TheSidebar.vue");
 /* harmony import */ var _module_BarChart__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../module/BarChart */ "./resources/js/components/module/BarChart.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
 //
 //
 //
@@ -2223,6 +2227,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2234,23 +2241,80 @@ __webpack_require__.r(__webpack_exports__);
     return {
       information: [],
       category: [],
-      categories: [1]
+      categories: [1],
+      rankingAlldata: {},
+      week: {},
+      month: {},
+      total: {},
+      rankingType: "1"
     };
   },
   mounted: function mounted() {
-    var _this = this;
-
-    this.$http.get("/api/category").then(function (response) {
-      _this.category = response.data;
-    });
-    this.$http.get("/api/information").then(function (response) {
-      _this.information = response.data;
-    });
+    this.getCategory();
+    this.getInformation();
+    this.getRanking();
   },
   methods: {
-    // get category
+    getRanking: function getRanking() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/api/ranking").then(function (response) {
+        _this.rankingAlldata = response.data;
+
+        _this.setRanking();
+      });
+    },
+    getCategory: function getCategory() {
+      var _this2 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/api/category").then(function (response) {
+        _this2.category = response.data;
+      });
+    },
+    getInformation: function getInformation() {
+      var _this3 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/api/information").then(function (response) {
+        _this3.information = response.data;
+      });
+    },
     goQuiz: function goQuiz() {
       this.$router.push("/quiz?categories=" + this.categories);
+    },
+    setRanking: function setRanking() {
+      var _this4 = this;
+
+      this.week = Object.assign({}, this.week, {
+        labels: this.rankingAlldata.weekRankingData.name,
+        datasets: [{
+          label: ["最高得点率"],
+          backgroundColor: "rgba(0, 170, 248, 0.47)",
+          data: this.rankingAlldata.weekRankingData.percentage_correct_answer
+        }]
+      });
+      this.month = Object.assign({}, this.month, {
+        labels: this.rankingAlldata.monthRankingData.name,
+        datasets: [{
+          label: ["最高得点率"],
+          backgroundColor: "rgba(0, 170, 248, 0.47)",
+          data: this.rankingAlldata.monthRankingData.percentage_correct_answer
+        }]
+      });
+      this.total = Object.assign({}, this.total, {
+        labels: this.rankingAlldata.totalRankingData.name,
+        datasets: [{
+          label: ["最高得点率"],
+          backgroundColor: "rgba(0, 170, 248, 0.47)",
+          data: this.rankingAlldata.totalRankingData.percentage_correct_answer
+        }]
+      });
+      this.$nextTick(function () {
+        _this4.$refs.totalChart.renderBarChart();
+
+        _this4.$refs.monthChart.renderBarChart();
+
+        _this4.$refs.weekChart.renderBarChart();
+      });
     }
   }
 });
@@ -2419,6 +2483,52 @@ Object(vee_validate__WEBPACK_IMPORTED_MODULE_1__["extend"])("email", _objectSpre
         }, _callee);
       }))();
     }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/page/Mypage.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/page/Mypage.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _layout_TheSidebar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../layout/TheSidebar */ "./resources/js/components/layout/TheSidebar.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: {
+    TheSidebar: _layout_TheSidebar__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  mounted: function mounted() {
+    this.$http.get("/api/user").then(function (response) {
+      console.log(response.data);
+    });
   }
 });
 
@@ -2593,6 +2703,8 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     findNextQuiz: function findNextQuiz(quizNumber) {
+      console.log(quizNumber);
+      console.log(this.quizData);
       this.title = this.quizData[quizNumber].title;
       this.answers = [this.quizData[quizNumber].answer.answer_1, this.quizData[quizNumber].answer.answer_2, this.quizData[quizNumber].answer.answer_3, this.quizData[quizNumber].answer.answer_4];
       this.commentary = this.quizData[quizNumber].answer.commentary;
@@ -44860,61 +44972,77 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      {
-        staticClass: "modal fade",
-        attrs: {
-          id: "modal-result",
-          tabindex: "-1",
-          "aria-hidden": "true",
-          role: "dialog"
-        }
-      },
-      [
-        _c("div", { staticClass: "modal-dialog" }, [
-          _c("div", { staticClass: "modal-content" }, [
-            _vm._m(0),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "modal-body text-center" },
-              [
-                _c("pie-chart", {
-                  ref: "chart",
-                  attrs: { chartData: _vm.chartData }
-                }),
-                _vm._v(" "),
-                _c("div", [
-                  _vm._v(
-                    "正解率 " +
-                      _vm._s(_vm.correctPercentageObject["correctScore"] * 10) +
-                      " %"
-                  )
-                ]),
-                _vm._v(" "),
-                _c("input", { attrs: { type: "hidden", name: "correctRatio" } })
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "modal-footer" }, [
+  return _c(
+    "form",
+    { attrs: { action: "/insertRanking", method: "POST", id: "finish-form" } },
+    [
+      _c(
+        "div",
+        {
+          staticClass: "modal fade",
+          attrs: {
+            id: "modal-result",
+            tabindex: "-1",
+            "aria-hidden": "true",
+            role: "dialog"
+          }
+        },
+        [
+          _c("div", { staticClass: "modal-dialog" }, [
+            _c("div", { staticClass: "modal-content" }, [
+              _vm._m(0),
+              _vm._v(" "),
               _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary",
-                  attrs: { type: "button" },
-                  on: { click: _vm.quizFinish }
-                },
-                [_vm._v("終了する")]
-              )
+                "div",
+                { staticClass: "modal-body text-center" },
+                [
+                  _c("pie-chart", {
+                    ref: "chart",
+                    attrs: { chartData: _vm.chartData }
+                  }),
+                  _vm._v(" "),
+                  _c("div", [
+                    _vm._v(
+                      "正解率 " +
+                        _vm._s(
+                          _vm.correctPercentageObject["correctScore"] * 10
+                        ) +
+                        " %"
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    attrs: { type: "hidden", name: "correctRatio" },
+                    domProps: {
+                      value: _vm.correctPercentageObject["correctScore"] * 10
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("input", {
+                    attrs: { type: "hidden", name: "_token" },
+                    domProps: { value: _vm.csrf }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "modal-footer" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn btn-primary",
+                    attrs: { type: "button" },
+                    on: { click: _vm.quizFinish }
+                  },
+                  [_vm._v("終了する")]
+                )
+              ])
             ])
           ])
-        ])
-      ]
-    )
-  ])
+        ]
+      )
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -45044,12 +45172,117 @@ var render = function() {
             _c("section", { staticClass: "home-quiz__ranking" }, [
               _vm._m(3),
               _vm._v(" "),
-              _vm._m(4),
+              _c("div", [
+                _c("label", [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.rankingType,
+                        expression: "rankingType"
+                      }
+                    ],
+                    staticClass: "ranking-radio",
+                    attrs: { type: "radio", value: "1" },
+                    domProps: { checked: _vm._q(_vm.rankingType, "1") },
+                    on: {
+                      change: function($event) {
+                        _vm.rankingType = "1"
+                      }
+                    }
+                  }),
+                  _vm._v("総合\n            ")
+                ]),
+                _vm._v(" "),
+                _c("label", [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.rankingType,
+                        expression: "rankingType"
+                      }
+                    ],
+                    staticClass: "ranking-radio",
+                    attrs: { type: "radio", value: "2" },
+                    domProps: { checked: _vm._q(_vm.rankingType, "2") },
+                    on: {
+                      change: function($event) {
+                        _vm.rankingType = "2"
+                      }
+                    }
+                  }),
+                  _vm._v("今月\n            ")
+                ]),
+                _vm._v(" "),
+                _c("label", [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.rankingType,
+                        expression: "rankingType"
+                      }
+                    ],
+                    staticClass: "ranking-radio",
+                    attrs: { type: "radio", value: "3" },
+                    domProps: { checked: _vm._q(_vm.rankingType, "3") },
+                    on: {
+                      change: function($event) {
+                        _vm.rankingType = "3"
+                      }
+                    }
+                  }),
+                  _vm._v("今週\n            ")
+                ])
+              ]),
               _vm._v(" "),
               _c(
                 "div",
                 { staticClass: "home_quiz__ranking-chart" },
-                [_c("bar-chart")],
+                [
+                  _c("bar-chart", {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.rankingType === "1",
+                        expression: "rankingType === '1'"
+                      }
+                    ],
+                    ref: "totalChart",
+                    attrs: { chartData: _vm.total }
+                  }),
+                  _vm._v(" "),
+                  _c("bar-chart", {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.rankingType === "2",
+                        expression: "rankingType === '2'"
+                      }
+                    ],
+                    ref: "monthChart",
+                    attrs: { chartData: _vm.month }
+                  }),
+                  _vm._v(" "),
+                  _c("bar-chart", {
+                    directives: [
+                      {
+                        name: "show",
+                        rawName: "v-show",
+                        value: _vm.rankingType === "3",
+                        expression: "rankingType === '3'"
+                      }
+                    ],
+                    ref: "weekChart",
+                    attrs: { chartData: _vm.week }
+                  })
+                ],
                 1
               )
             ]),
@@ -45058,7 +45291,7 @@ var render = function() {
               "section",
               { staticClass: "home__notice" },
               [
-                _vm._m(5),
+                _vm._m(4),
                 _vm._v(" "),
                 _vm._l(_vm.information, function(info, index) {
                   return _c("dl", { key: index }, [
@@ -45159,41 +45392,6 @@ var staticRenderFns = [
         attrs: { src: "/images/graph-icon.png" }
       }),
       _vm._v("ランキング\n          ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("label", [
-        _c("input", {
-          staticClass: "ranking-radio",
-          attrs: {
-            type: "radio",
-            name: "ranking-radio",
-            value: "1",
-            checked: ""
-          }
-        }),
-        _vm._v("総合\n            ")
-      ]),
-      _vm._v(" "),
-      _c("label", [
-        _c("input", {
-          staticClass: "ranking-radio",
-          attrs: { type: "radio", name: "ranking-radio", value: "2" }
-        }),
-        _vm._v("今月\n            ")
-      ]),
-      _vm._v(" "),
-      _c("label", [
-        _c("input", {
-          staticClass: "ranking-radio",
-          attrs: { type: "radio", name: "ranking-radio", value: "3" }
-        }),
-        _vm._v("今週\n            ")
-      ])
     ])
   },
   function() {
@@ -45515,6 +45713,60 @@ var render = function() {
   ])
 }
 var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/page/Mypage.vue?vue&type=template&id=2284d360&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/page/Mypage.vue?vue&type=template&id=2284d360& ***!
+  \**************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("main", [
+      _c(
+        "div",
+        { staticClass: "container" },
+        [_vm._m(0), _vm._v(" "), _c("the-sidebar")],
+        1
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("article", { staticClass: "col-md-8 col-xs-12" }, [
+      _c("section", { staticClass: "article-section" }, [
+        _c("h2", { staticClass: "mypage-h2" }, [
+          _c("img", {
+            staticClass: "mypage__logo",
+            attrs: { src: "/images/mypage-icon.png" }
+          }),
+          _vm._v("マイページ\n          ")
+        ]),
+        _vm._v(" "),
+        _c("h3", [_vm._v("直近 回の正解率推移")]),
+        _vm._v(" "),
+        _c("canvas")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -61908,6 +62160,75 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/page/Mypage.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/components/page/Mypage.vue ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Mypage_vue_vue_type_template_id_2284d360___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Mypage.vue?vue&type=template&id=2284d360& */ "./resources/js/components/page/Mypage.vue?vue&type=template&id=2284d360&");
+/* harmony import */ var _Mypage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Mypage.vue?vue&type=script&lang=js& */ "./resources/js/components/page/Mypage.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Mypage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Mypage_vue_vue_type_template_id_2284d360___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Mypage_vue_vue_type_template_id_2284d360___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/page/Mypage.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/page/Mypage.vue?vue&type=script&lang=js&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/page/Mypage.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Mypage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./Mypage.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/page/Mypage.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Mypage_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/page/Mypage.vue?vue&type=template&id=2284d360&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/page/Mypage.vue?vue&type=template&id=2284d360& ***!
+  \********************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Mypage_vue_vue_type_template_id_2284d360___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./Mypage.vue?vue&type=template&id=2284d360& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/page/Mypage.vue?vue&type=template&id=2284d360&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Mypage_vue_vue_type_template_id_2284d360___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Mypage_vue_vue_type_template_id_2284d360___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/page/Quiz.vue":
 /*!***********************************************!*\
   !*** ./resources/js/components/page/Quiz.vue ***!
@@ -62062,9 +62383,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_page_Quiz__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/page/Quiz */ "./resources/js/components/page/Quiz.vue");
 /* harmony import */ var _components_page_Login__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/page/Login */ "./resources/js/components/page/Login.vue");
 /* harmony import */ var _components_page_Register__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/page/Register */ "./resources/js/components/page/Register.vue");
+/* harmony import */ var _components_page_Mypage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/page/Mypage */ "./resources/js/components/page/Mypage.vue");
 
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
+
 
 
 
@@ -62087,6 +62410,10 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
     path: '/register',
     name: _components_page_Register__WEBPACK_IMPORTED_MODULE_5__["default"],
     component: _components_page_Register__WEBPACK_IMPORTED_MODULE_5__["default"]
+  }, {
+    path: '/mypage',
+    name: 'mypage',
+    component: _components_page_Mypage__WEBPACK_IMPORTED_MODULE_6__["default"]
   }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (router);

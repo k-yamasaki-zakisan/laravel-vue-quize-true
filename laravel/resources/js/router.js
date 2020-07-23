@@ -7,6 +7,7 @@ import home from "./components/page/Home";
 import quiz from "./components/page/Quiz";
 import login from './components/page/Login';
 import register from "./components/page/Register";
+import mypage from './components/page/Mypage'
 
 const router = new VueRouter({
     mode: "history",
@@ -30,6 +31,11 @@ const router = new VueRouter({
             path: '/register',
             name: register,
             component: register
+        },
+        {
+            path: '/mypage',
+            name: 'mypage',
+            component: mypage,
         },
     ]
 });

@@ -150,6 +150,8 @@ export default {
       }
     },
     findNextQuiz(quizNumber) {
+      console.log(quizNumber);
+      console.log(this.quizData);
       this.title = this.quizData[quizNumber].title;
       this.answers = [
         this.quizData[quizNumber].answer.answer_1,
