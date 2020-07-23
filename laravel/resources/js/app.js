@@ -6,11 +6,12 @@ import Vue from "vue";
 import router from "./router";
 import MainPage from './components/page/MainPage'
 // import App from './App.vue' 
-import 'bootstrap/dist/css/bootstrap.css' 
-import 'bootstrap-vue/dist/bootstrap-vue.css'
+import 'bootstrap/dist/css/bootstrap.css' ;
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
-import axios from 'axios'
+import Notifications from 'vue-notification'
+import axios from 'axios';
 import jQuery from "jquery";
 window.$ = window.jQuery = jQuery;
 require('bootstrap');
@@ -23,7 +24,9 @@ axios.defaults.headers.common['Authorization'] = "Bearer " + document
 
 Vue.use(Loading);
 
-Vue.use(BootstrapVue)
+Vue.use(Notifications);
+
+Vue.use(BootstrapVue);
  
 // const app = new Vue({
 //     el: "#app",
